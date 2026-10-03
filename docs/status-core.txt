@@ -1,0 +1,9 @@
+IncidentWeave demonstration status source A
+
+Service: Meridian Core API
+Observation window: October 3, 2026 from 09:00 to 11:00 UTC
+
+09:15 UTC: Requests are failing for customers in Europe.
+10:00 UTC: The incident remains active while engineers investigate.
+
+This file is an operator-created demonstration fixture. It is not an independent or official status source.

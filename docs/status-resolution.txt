@@ -1,0 +1,9 @@
+IncidentWeave demonstration witness source C
+
+Service: Meridian independent operations log
+Observation window: October 3, 2026 from 09:00 to 11:00 UTC
+
+10:20 UTC: Error rates returned to normal and the incident is resolved.
+Monitoring continues across all regions.
+
+This file is an operator-created demonstration fixture. It is not an independent or official status source.
