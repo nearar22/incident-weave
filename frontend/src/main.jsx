@@ -13,9 +13,9 @@ const RPC=import.meta.env.VITE_GENLAYER_RPC_URL||"https://studio-next.genlayer.c
 const CHAIN_ID=Number(import.meta.env.VITE_GENLAYER_CHAIN_ID||"61997");
 const CHAIN={...studioDevnet,id:CHAIN_ID,name:"GenLayer Studio Next",rpcUrls:{default:{http:[RPC]}}};
 const EXPLORER="https://explorer-studio-dev.genlayer.com";
-const SOURCE_A="https://raw.githubusercontent.com/nearar22/incident-weave/SOURCE_COMMIT/docs/status-core.txt";
-const SOURCE_B="https://raw.githubusercontent.com/nearar22/incident-weave/SOURCE_COMMIT/docs/status-edge.txt";
-const SOURCE_C="https://raw.githubusercontent.com/nearar22/incident-weave/SOURCE_COMMIT/docs/status-resolution.txt";
+const SOURCE_A="https://raw.githubusercontent.com/nearar22/incident-weave/ae6850d1ac1831674cd68bc6a190faa3522a8729/docs/status-core.txt";
+const SOURCE_B="https://raw.githubusercontent.com/nearar22/incident-weave/ae6850d1ac1831674cd68bc6a190faa3522a8729/docs/status-edge.txt";
+const SOURCE_C="https://raw.githubusercontent.com/nearar22/incident-weave/ae6850d1ac1831674cd68bc6a190faa3522a8729/docs/status-resolution.txt";
 const clean=value=>value instanceof Map?Object.fromEntries([...value].map(([k,v])=>[k,clean(v)])):Array.isArray(value)?value.map(clean):value&&typeof value==="object"?Object.fromEntries(Object.entries(value).map(([k,v])=>[k,clean(v)])):typeof value==="bigint"?Number(value):value;
 const short=value=>value?`${value.slice(0,6)}…${value.slice(-4)}`:"";
 
