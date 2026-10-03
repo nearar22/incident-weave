@@ -6,7 +6,7 @@ Incident timelines are usually written by one operator after the fact. IncidentW
 
 1. Open an incident with a question, observation window, and at least two public HTTPS status sources.
 2. Validators agree on an exact frozen snapshot of every source.
-3. A proposed chronology cites exact event and timestamp quotes. Comparative consensus checks the full event set and conflict graph against the frozen record.
+3. The operator proposes exact event observations and conflict edges. Contract code proves every quote exists in its cited source, then comparative consensus checks the full chronology, semantic kinds, and conflict graph against the frozen record.
 4. The owner may add one witness source, forcing a complete resynthesis.
 5. The owner seals the final weave. Source receipts, events, conflicts, and phase remain on-chain.
 
