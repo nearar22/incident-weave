@@ -5,14 +5,14 @@ CONTRACT = "contracts/incident_weave.py"
 URL_A = "https://status.example.org/core"
 URL_B = "https://edge.example.net/api"
 URL_C = "https://ops.example.com/final"
-SOURCE_A = "Core API incident log. 09:15 UTC: Requests are failing for customers in Europe. 10:00 UTC: The incident remains active while engineers investigate."
-SOURCE_B = "Edge status bulletin. 09:45 UTC: API traffic is operating normally in every region. No active incident is shown on this page."
+SOURCE_A = "Core API incident log. 09:45 UTC: Requests are failing for customers in Europe. At the 09:45 UTC checkpoint, the incident remains active while engineers investigate."
+SOURCE_B = "Edge status bulletin. 09:45 UTC: API traffic is operating normally in every region. At the 09:45 UTC checkpoint, no active incident is shown on this page."
 SOURCE_C = "Independent operations note. 10:20 UTC: Error rates returned to normal and the incident is resolved. Monitoring continues."
 
 
 def result(with_third=False):
     events = [
-        {"index": 0, "kind": "OUTAGE", "source_index": 0, "time_quote": "09:15 UTC", "quote": "Requests are failing for customers in Europe"},
+        {"index": 0, "kind": "OUTAGE", "source_index": 0, "time_quote": "09:45 UTC", "quote": "Requests are failing for customers in Europe"},
         {"index": 1, "kind": "OPERATIONAL", "source_index": 1, "time_quote": "09:45 UTC", "quote": "API traffic is operating normally in every region"},
     ]
     if with_third:
@@ -68,7 +68,7 @@ def test_forged_event_quote_fails_closed(direct_vm, direct_deploy, monkeypatch):
 
 def test_conflict_must_cross_sources(direct_vm, direct_deploy, monkeypatch):
     contract = direct_deploy(CONTRACT); enable_consensus(contract, monkeypatch); incident_id = open_record(contract)
-    forged = result(); forged["events"][1]["source_index"] = 0; forged["events"][1]["time_quote"] = "10:00 UTC"; forged["events"][1]["quote"] = "The incident remains active while engineers investigate"
+    forged = result(); forged["events"][1]["source_index"] = 0; forged["events"][1]["time_quote"] = "09:45 UTC"; forged["events"][1]["quote"] = "the incident remains active while engineers investigate"
     direct_vm.mock_web(URL_A, {"method": "GET", "status": 200, "body": SOURCE_A}); direct_vm.mock_web(URL_B, {"method": "GET", "status": 200, "body": SOURCE_B}); direct_vm.mock_llm("INCIDENTWEAVE_PRODUCER", json.dumps(json.dumps(forged)))
     with direct_vm.expect_revert("Every source"):
         contract.synthesize(incident_id)

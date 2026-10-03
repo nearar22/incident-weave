@@ -4,6 +4,6 @@ Service: Meridian Edge Gateway
 Observation window: October 3, 2026 from 09:00 to 11:00 UTC
 
 09:45 UTC: API traffic is operating normally in every region.
-No active incident is shown on this page.
+At the 09:45 UTC checkpoint, no active incident is shown on this page.
 
 This file is an operator-created demonstration fixture. It is not an independent or official status source.
