@@ -27,4 +27,12 @@ npm test
 npm run build
 ```
 
-Deployment evidence will be added only after the exact reviewed source passes its live Studio Next lifecycle.
+## Live deployment
+
+- Network: GenLayer Studio Next, chain `61997`
+- Contract: [`0xEC19104A5415Ba8e663a62f8a474846269dAc665`](https://explorer-studio-dev.genlayer.com/address/0xEC19104A5415Ba8e663a62f8a474846269dAc665)
+- Deployment transaction: [`0x62112e2a...648e75a`](https://explorer-studio-dev.genlayer.com/tx/0x62112e2a523e12184f1925d81aaf9890bc15b2245ca67249daf636135648e75a)
+- Public demo incident: `weave-demo-muskilj4`
+- Exact deployed source match: verified in [`deployment.json`](deployment.json)
+
+The public demo begins with two sources making opposite operational claims at the same 09:45 UTC checkpoint. Consensus stores the phase as `DISPUTED`. The owner then adds one independent resolution witness, the complete evidence proposal is revalidated against all three frozen sources, and the final record is sealed as `RESOLVED_DISPUTED` without erasing the original conflict.
